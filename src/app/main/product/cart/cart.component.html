@@ -1,0 +1,101 @@
+<div *ngIf="!cart" style="padding: 0" class="no-cart container-fluid">
+    <div class="cart-empty-page__content">
+        <div class="cart-empty-page__content-image">
+            <img src="https://ohuivina.com/assets/images/no-cart.png" alt="">
+        </div>
+        <p class="cart-empty-page__content-text">Giỏ hàng của bạn còn trống.</p>
+        <a routerLink="/all" class="btn btn--primary btn--l">Mua ngay</a>
+    </div>
+</div>
+<div *ngIf="cart">
+    <div class="container deltai-Cart">
+        <div class="cart-page-product-header">
+            <div class="cart-page-product-header__product">Sản phẩm</div>
+            <div class="cart-page-product-header__unit-price">Đơn giá</div>
+            <div class="cart-page-product-header__quantity">Số lượng</div>
+            <div class="cart-page-product-header__total-price">Số tiền</div>
+            <div class="cart-page-product-header__action">Thao tác</div>
+        </div>
+
+        <div class="cart-page-shop-section">
+            <div *ngFor="let i of cart.products" class="cart-page-shop-section__items">
+                <div class="cart-item js-product-cart">
+                    <div class="cart-item__content">
+                        <div class="cart-item__cell-overview">
+                            <a class="cart-item-overview__thumbnail-wrapper" href="">
+                                <img class="cart-item-overview__thumbnail" [src]="i.productInfo.image" alt="">
+                            </a>
+                        </div>
+                        <div class="cart-item__flex">
+                            <div class="cart-item-overview__product-name-wrapper">
+                                <a href="" class="cart-item-overview__name">
+                                    {{ i.productInfo.name }}
+                                </a>
+                            </div>
+                            <div class="cart-item-overview__price">
+                                <div class="cart-item__cell-unit-price">
+                                    <span
+                                        class="cart-item__unit-price cart-item__unit-price--after js-cart-item-unit-price">
+                                        {{ i.productInfo.price | number }}đ
+                                    </span>
+                                </div>
+                                <div class="cart-item__cell-quantity">
+                                    <div class="_19lAw4 tickid-input-quantity js-plus-minus">
+                                        <button (click)="deleteCart(i.productInfo.productId)"
+                                            class="bt btn-quantity _1zT8xu js-plus btn-reduction">
+                                            <svg class="tickid-svg-icon" enable-background="new 0 0 10 10"
+                                                viewBox="0 0 10 10" x="0" y="0">
+                                                <polygon
+                                                    points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
+                                                </polygon>
+                                            </svg>
+                                        </button>
+                                        <input (blur)="updateCart(quantiy, i.productInfo.productId)" 
+                                            min="1"
+                                            max={{i.productInfo.remainQuantity}}
+                                            class="_1zT8xu _18Y8Ul js-current js-input-update-cart" 
+                                            type="number"
+                                            #quantiy
+                                            [value]="i.quantity" name="" id="" pattern="\d+">
+                                        <button (click)="addCart(i.productInfo.productId)"
+                                            class="bt btn-quantity _1zT8xu js-plus btn-add">
+                                            <svg class="tickid-svg-icon icon-plus-sign"
+                                                enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0">
+                                                <polygon
+                                                    points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
+                                                </polygon>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="cart-item__cell-total-price js-cart-item-total-price">
+                                    {{ i.price | number}}đ
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-item__cell-actions">
+                            <button style="outline: none" (click)="removeCart(i.productInfo.productId)"
+                                class="cart-item__action js-remove-cart">
+                                Xóa
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="container" style="padding-bottom:10px">
+        <div class="checkout" style="margin: 0; width: 100%;">
+            <div class="cart-info">
+                <div class="cart-title">Tổng tiền:</div>
+                <div class="cart-value">
+                    {{ cart.totalPrice | number}}đ
+                </div>
+            </div>
+            <a (click)="checkOutLink()" href="" class=" btn btn--primary ">Thanh toán</a>
+        </div>
+    </div>
+</div>

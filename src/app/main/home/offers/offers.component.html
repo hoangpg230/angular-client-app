@@ -1,0 +1,105 @@
+<div *ngFor="let i of offers" class="spacing">
+    <div class="offers">
+        <div class="offers__wrapper">
+            <div class="offers__head">
+                <div class="offers__title">
+                    {{ i.name }}
+                </div>
+                <div class="offers__viewall">
+                    <a href="">
+                        Xem tất cả
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="offers__body">
+                <div *ngFor="let j of i.child.slice(0, 1)" class="offers__body-left">
+                    <div class="offers__item offers__item--primary">
+                        <a [routerLink]="['/'+j.slug]" class="home-product-item">
+                            <div class="home-product-item__img" [style.background-image]="'url(' + j.image + ')'">
+                            </div>
+                            <div class="home-product-item__content">
+                                <h4 class="home-product-item__name">{{ j.name }}</h4>
+                                <div class="home-product-item__price">
+                                    <span class="home-product-item__price-old">{{ priceSale(j.price, 10) | number
+                                        }}đ</span>
+                                    <span class="home-product-item__price-current">{{ j.price | number }}đ</span>
+                                </div>
+                                <div class="home-product-item__action">
+                                    <!-- home-product-item__action-like--liked -->
+                                    <span class="home-product-item__action-like ">
+                                        <i class="home-product-item__action-like-empty far fa-heart"></i>
+                                        <i class="home-product-item__action-like-fill  fas fa-heart "></i>
+                                    </span>
+                                    <div class="home-product-item__rating">
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <div class="home-product-item__sold">
+                                            <span>{{j.sold}}</span>Đã bán
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="home-product-item__origin">
+                                    <div class="home-product-item__brand">{{ j.subData.split(" ")[0] }}</div>
+                                    <div class="home-product-item__origin-name">Hàn Quốc</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="offers__body-right list-item row sm-gutter">
+                    <div *ngFor="let j of i.child.slice(1, 7)" class="col col-lg-4 col-md-4 col-sm-6">
+                        <a [routerLink]="['/'+j.slug]" class="home-product-item">
+                            <div class="home-product-item__img" [style.background-image]="'url(' + j.image + ')'">
+                            </div>
+                            <div class="home-product-item__content">
+                                <h4 class="home-product-item__name">{{ j.name }}</h4>
+                                <div class="home-product-item__price">
+                                    <span class="home-product-item__price-old">{{ priceSale(j.price, 10) | number
+                                        }}đ</span>
+                                    <span class="home-product-item__price-current">{{ j.price | number }}đ</span>
+                                </div>
+                                <div class="home-product-item__action">
+                                    <!-- home-product-item__action-like--liked -->
+                                    <span class="home-product-item__action-like ">
+                                        <i class="home-product-item__action-like-empty far fa-heart"></i>
+                                        <i class="home-product-item__action-like-fill  fas fa-heart "></i>
+                                    </span>
+                                    <div class="home-product-item__rating">
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="home-product-item__star--gold fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <div class="home-product-item__sold">
+                                            <span>{{j.sold}}</span>Đã bán
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="home-product-item__origin">
+                                    <div class="home-product-item__brand">{{j.subData.split(" ")[0]}}</div>
+                                    <div class="home-product-item__origin-name">Hàn Quốc</div>
+                                </div>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <i class="fas fa-check"></i>
+                                <div class="home-product-item__favourite-label">Yêu thích</div>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <div class="home-product-item__sale-off-percent">10%</div>
+                                <div class="home-product-item__sale-off-label">giảm</div>
+                            </div>
+
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from './core/services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'client-app';
+
+  constructor(
+    private router: Router
+  ) { }
+
+  @HostListener('document:click', ['$event'])
+  public handleClick(event: Event): void {
+    if (event.target instanceof HTMLAnchorElement) {
+      const element = event.target as HTMLAnchorElement;
+      if (element.className.indexOf('routerlink')) {
+        event.preventDefault();
+        const route = element?.getAttribute('href');
+        if (route) {
+          this.router.navigate([`/${route}`]);
+        }
+      }
+    }
+  }
+
+  
+  ngOnInit() {
+    
+  }
 }

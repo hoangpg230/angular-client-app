@@ -1,0 +1,257 @@
+<div class="container">
+    <div class="breadcrumbs--margin hide-on-mobile-tablet">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="/home" class="breadcrumbs__link">Trang chủ</a>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li class="breadcrumbs__item"><span>Tất cả sản phẩm</span></li>
+        </ul>
+
+    </div>
+    <div class="product-briefing">
+
+        <div class="product-briefing__left col col-lg-5">
+            <div class="product-briefing__image-default">
+                <img [src]="product.image" alt="">
+            </div>
+            <div class="product-briefing-slider row sm-gutter">
+                <div class="product-briefing__image-border active col col-lg-2-4">
+                    <img [src]="product.image" alt="">
+                </div>
+            </div>
+
+            <div class="product-briefing__left-footer">
+                <ul class="row">
+                    <li class="col col-lg-4 saparate ">
+                        Chia sẻ
+                        <i class="fab fa-facebook me-2"></i>
+                        <i class="fab fa-facebook-messenger"></i>
+                    </li>
+                    <li class="col col-lg-8 text-center">
+                        <i class="far fa-heart me-2"></i>
+                        Yêu thích
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-briefing__right col col-lg-7">
+            <h3 class="product-briefing__right--product-name">
+                {{ product.name }}
+            </h3>
+            <ul class="product-briefing__right-action mt-3">
+                <li class="product-briefing__right-rating-star saparate me-4 pe-4">
+                    <div class="product-briefing__right-star-number under-line">5</div>
+                    <div class="product-briefing__right-star ms-2">
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                        <i class="home-product-item__star--gold fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </li>
+                <div class="product-briefing__right-rate saparate me-4 pe-4">
+                    <span class="under-line me-2">66</span>Đánh giá
+                </div>
+                <div class="product-briefing__right-sold">
+                    <span class="me-2">{{ product.sold }}</span>Đã bán
+                </div>
+            </ul>
+            <div class="product-briefing__right-price">
+                <div class="product-briefing__right-price-old">{{ priceSale(product.price, 10) | number}}đ</div>
+                <div class="product-briefing__right-price-new">{{ product.price | number}}đ</div>
+                <div class="product-briefing__right-price-percent">10% GIẢM GIÁ</div>
+            </div>
+
+            <div class="product-briefing__right-summary">
+                <div class="product-briefing__right-summary-label">Thông tin:</div>
+                <div class="product-briefing__right-summary-content">
+                    <div [innerHTML]="product.description" class="product-briefing__right-summary-desc">
+                        
+                    </div>
+                    <a href="" (click)="scrollToDesc()" class="product-briefing__right-summary-more">Xem chi tiết</a>
+                </div>
+            </div>
+            <div class="product-briefing__quantity">
+                <div class="product-briefing__quantity-label">Số Lượng</div>
+                <div class="flex items-center cl-gray">
+                    <div style="margin-right: 15px;">
+                        <div class="tickid-input-quantity">
+                            <button (click)="minusQuantity(quantity)" value="1" class="btn btn-quantity">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input class="" #quantity (blur)="onChangeValue(quantity)" type="text" value="1">
+                            <button (click)="plusQuantity(quantity)" class="btn btn-quantity ">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-briefing__action">
+                <div (click)="addCart(product.productId, quantity)" class="btn btn-add-to-cart me-4">
+                    <i class="fas fa-cart-plus me-2"></i>
+                    Thêm vào giỏ hàng
+                </div>
+                <div (click)="buyCart(product.productId, quantity)" class="btn btn--primary">Mua ngay</div>
+            </div>
+            <div class="product-briefing__footer">
+                <div class="noopener">
+                    <img src="https://ohuivina.com/assets/images/shiled.png" class="_110HpJ" alt="shiled">
+                    <span class="ms-2">Gian Hàng Đảm Bảo</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="page-product__content">
+        <div class="product-detail">
+            <div class="product-details__item">
+
+                <div class="product-details__item-title">Thông Số Sản Phẩm</div>
+                <div class="product-details__item-content">
+                    <div class="product-details__item-content-bar">
+                        <label class="product-details__item-content-label">Danh Mục</label>
+                        <div class="flex items-center _1z1CEl">
+                            <a class="product-details__item-content-link" href="/danh-muc/set-whoo-mini">
+                                {{ product.subData }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-details__item-content-bar">
+                        <label class="product-details__item-content-label">Mã sản phẩm
+                        </label>
+                        <div class="flex items-center _1z1CEl">
+                            <div class="product-details__item-content-link">
+                                {{ product.productId }}</div>
+                        </div>
+                    </div>
+                    <div class="product-details__item-content-bar">
+                        <label class="product-details__item-content-label">Nhãn hiệu</label>
+                        <div class="flex items-center _1z1CEl">
+                            <div class="product-details__item-content-link">
+                                {{ brand.split(" ")[0] }}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="desc" class="product-details__item-content-bar">
+                        <label class="product-details__item-content-label">Xuất xứ</label>
+                        <div class="flex items-center _1z1CEl">
+                            <div class="product-details__item-content-link">
+                                Hàn Quốc</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-details__item">
+
+                <div  class="product-details__item-title">Mô Tả Sản Phẩm</div>
+                <div [innerHTML]="product.description" class="product-details__item-content">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spacing">
+        <div class="card new-item promotion-combo js-promotion-combo">
+            <div class=" promotion-combo__header">
+                <div class=" promotion-combo__header-left">
+                    <div class=" promotion-combo__title" style="text-transform: none;">Sản phẩm liên quan</div>
+                    <div class="offers__viewall">
+                        <a href="">
+                            Xem tất cả
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <div id="slideProduct" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div *ngFor="let i of newProduct.slice(0, 6)" class="col col-lg-2 col-md-4 col-sm-6">
+                                    <app-item [productInfo]="i"></app-item>
+                                </div>
+                                
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div *ngFor="let i of newProduct.slice(6)" class="col col-lg-2 col-md-4 col-sm-6">
+                                    <app-item [productInfo]="i"></app-item>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slideProduct"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slideProduct"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="spacing">
+        <div class="card new-item promotion-combo js-promotion-combo">
+            <div class=" promotion-combo__header">
+                <div class=" promotion-combo__header-left">
+                    <div class=" promotion-combo__title" style="text-transform: none;">Sản phẩm bán chạy</div>
+                    <div class="offers__viewall">
+                        <a href="">
+                            Xem tất cả
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+                <div id="slideProduct1" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div *ngFor="let i of soldProduct.slice(0, 6)" class="col col-lg-2 col-md-4 col-sm-6">
+                                    <app-item [productInfo]="i"></app-item>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div *ngFor="let i of soldProduct.slice(6)" class="col col-lg-2 col-md-4 col-sm-6">
+                                    <app-item [productInfo]="i"></app-item>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slideProduct1"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slideProduct1"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

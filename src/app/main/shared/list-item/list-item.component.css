@@ -1,0 +1,8 @@
+.pagination-item__link,
+.home-filter__page-btn {
+    cursor: pointer;
+}
+.disable {
+    cursor: default !important;
+}
+

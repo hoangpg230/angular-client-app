@@ -1,0 +1,23 @@
+.carousel-control-prev, 
+.carousel-control-next {
+    width: 6% !important;
+}
+
+.product-briefing__image-default {
+    width: 472px;
+    height: 472px;
+}
+
+.product-briefing__image-default img {
+    height: 100%;
+}
+
+.product-briefing__image-border{
+    width: 86px;
+    height: 86px;
+}
+
+.product-briefing__image-border img{
+    width: 100%;
+    height: 100%;
+}

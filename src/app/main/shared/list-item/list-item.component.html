@@ -1,0 +1,188 @@
+<div class="shop-search-page container">
+    <div class="breadcrumbs--margin hide-on-mobile-tablet">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="" class="breadcrumbs__link">Trang chủ</a>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li class="breadcrumbs__item"><span>Tất cả sản phẩm</span></li>
+        </ul>
+    </div>
+    <div class="shop-search-page__body row sm-gutter">
+        <div class="shop-search-page__left col col-lg-2 hide-on-mobile-tablet">
+            <app-categories></app-categories>
+        </div>
+        <div class="shop-search-page__right col col-lg-10 col-md-12 col-sm-12">
+            <div class="mobile-category">
+                <ul class="mobile-category__list">
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                    <li class="mobile-category__item"><a href="" class="mobile-category__link">Ohui Thefirst Tái Sinh
+                        </a></li>
+                </ul>
+            </div>
+
+
+            <div class="shop-all-product-view">
+                <div class="home-filter hide-on-mobile-tablet">
+                    <span class="home-filter__label">Sắp xếp theo:</span>
+                    <span class="btn  home-filter__btn" [ngClass]="{'btn--primary': filter == 'Phổ biến'}"
+                        (click)="handleFilter('Phổ biến')">Phổ biến</span>
+                    <span class="btn home-filter__btn " [ngClass]="{'btn--primary': filter == 'Mới nhất'}"
+                        (click)="handleFilter('Mới nhất')">Mới nhất</span>
+                    <span class="btn home-filter__btn" [ngClass]="{'btn--primary': filter == 'Bán chạy'}"
+                        (click)="handleFilter('Bán chạy')">Bán chạy</span>
+                    <div class="select-input">
+                        <div class="select-input__label">
+                            <span [ngClass]="{'active': filter == 'asc' || filter == 'desc'}"
+                                class="select-input__price active" [ngSwitch]="filter">
+                                <ng-container *ngSwitchCase="'asc'">
+                                    Giá: từ thấp đến cao
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'desc'">
+                                    Giá: từ cao đến thấp
+                                </ng-container>
+                                <ng-container *ngSwitchDefault>
+                                    Giá
+                                </ng-container>
+                            </span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <ul class="select-input__list">
+                            <li class="select-input__item" [ngClass]="{'active': filter == 'asc'}"><a href=""
+                                    (click)="handleFilter('asc')"> Giá: từ thấp đến cao</a> </li>
+                            <li class="select-input__item" [ngClass]="{'active': filter == 'desc'}"><a href=""
+                                    (click)="handleFilter('desc')"> Giá: từ cao đến thấp</a> </li>
+                        </ul>
+                    </div>
+                    <div class="home-filter__paginate">
+                        <div class="home-filter__page-num">
+                            <div class="home-filter__page-current">{{currentPage}}</div>
+                            <div class="home-filter__page-total">/{{toTalPages}}</div>
+                        </div>
+                        <div class="home-filter__page-control">
+                            <span class="home-filter__page-btn" [ngClass]="{disable: currentPage==1}"
+                                (click)="handlePageChange($event, currentPage - 1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="home-filter__page-btn" [ngClass]="{disable: currentPage >= toTalPages}"
+                                (click)="handlePageChange($event, currentPage + 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-product">
+                    <div class="row sm-gutter">
+                        <div *ngFor="let i of products.slice(start, end)" class="col col-lg-2-4 col-md-4 col-sm-6">
+                            <a [routerLink]="['/'+i.slug]" class="home-product-item">
+                                <div class="home-product-item__img" [style.background-image]="'url(' + i.image + ')'">
+                                </div>
+                                <div class="home-product-item__content">
+                                    <h4 class="home-product-item__name">
+                                        {{i.name}}
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">{{ priceSale(i.price, 10) |
+                                            number}}đ</span>
+                                        <span class="home-product-item__price-current">{{ i.price | number }}đ</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+                                        <!-- home-product-item__action-like--liked -->
+                                        <span class="home-product-item__action-like ">
+                                            <i class="home-product-item__action-like-empty far fa-heart"></i>
+                                            <i class="home-product-item__action-like-fill  fas fa-heart "></i>
+                                        </span>
+                                        <div class="home-product-item__rating">
+                                            <i class="home-product-item__star--gold fas fa-star"></i>
+                                            <i class="home-product-item__star--gold fas fa-star"></i>
+                                            <i class="home-product-item__star--gold fas fa-star"></i>
+                                            <i class="home-product-item__star--gold fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <div *ngIf="i.sold > 0" class="home-product-item__sold">
+                                                <span>{{i.sold}}</span>Đã bán
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <div class="home-product-item__brand">{{ i.subData.split(" ")[0] }}</div>
+                                        <div class="home-product-item__origin-name">Hàn Quốc</div>
+                                    </div>
+                                </div>
+                                <div class="home-product-item__favourite">
+                                    <i class="fas fa-check"></i>
+                                    <div class="home-product-item__favourite-label">Yêu thích</div>
+                                </div>
+                                <div class="home-product-item__sale-off">
+                                    <div class="home-product-item__sale-off-percent">10%</div>
+                                    <div class="home-product-item__sale-off-label">giảm</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div 
+                        *ngIf="products.length < 1"
+                        class="col col-lg-12 home-product-item__name alert alert-danger mt-4" 
+                        role="alert"
+                        style="height: auto;" 
+                        >
+                            Không tìm thấy ghi nào!
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="pagination">
+                    <li class="pagination-item">
+                        <span class="pagination-item__link" [ngClass]="{disable: currentPage == 1}"
+                            (click)="handlePageChange($event, currentPage - 1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                    </li>
+
+                    <li *ngFor="let i of arrayPage" class="pagination-item"
+                        [ngClass]="{ active: i == currentPage, disabled: i == '...' || i == '... ' || i == ' ...'}">
+                        <span class="pagination-item__link" (click)="handlePageChange($event, i)">
+                            {{ i }}
+                        </span>
+                    </li>
+
+                    <li class="pagination-item">
+                        <span class="pagination-item__link" [ngClass]="{disable: currentPage >= toTalPages}"
+                            (click)="handlePageChange($event, currentPage + 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>

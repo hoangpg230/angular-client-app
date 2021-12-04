@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="cart-success__content">
+        <div class="cart-success__header">
+            <div class="cart-success__title">
+                <h4>Đặt hàng thành công!</h4>
+                <p>Cảm ơn bạn đã đặt mua hàng tại Mỹ Phẩm Ohui - LG Vina</p>
+                <p>Đơn hàng của bạn hiện đang được xử lý. Chúng tôi sẽ sớm liên hệ để giao hàng.</p>
+            </div>
+            <div style="display: flex;justify-content:center" class="cart-success__subtitle">
+                Mã đơn hàng của bạn:
+                <b id="mddh">&nbsp;</b>
+                <p id="tgdh">{{ SaleReceiptId }}</p>
+            </div>
+        </div>
+        <div class="cart-success__body">
+            <p>Thông tin đơn hàng:</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Thuộc tính</th>
+                        <th>Đơn giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of SaleReceipt.detail_sales_invoice">
+                        <td>
+                            <img style="width: 60px;height:60px" [src]="i.product[0].image" />
+                        </td>
+                        <td>
+                            <p>
+                                {{i.product[0].name}}
+                            </p>
+                        </td>
+                        <td>{{i.quantity}}</td>
+                        <td></td>
+                        <td>{{i.price | number }}đ</td>
+                    </tr>
+                    <tr>
+                        <td class="cart-success__item-title" colspan="4">Tổng giá trị sản phẩm</td>
+                        <td>{{SaleReceipt.total | number}}đ</td>
+                    </tr>
+                    <tr>
+                        <td class="cart-success__item-title" colspan="4">Phí Ship</td>
+                        <td>Chưa tính</td>
+                    </tr>
+                    <tr>
+                        <td class="cart-success__item-title" colspan="4">Tổng thanh toán</td>
+                        <td style="color: orangered">{{SaleReceipt.total | number}}đ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Thông tin nhận hàng:</p>
+            <div class="cart-success__addresss">
+                <div class="cart-success__address-group">
+                    <label for="" class="cart-success__address-label">Người nhận :</label>
+                    <p id="tennguoinhan" class="cart-success__address-content">{{ SaleReceipt.customer }}</p>
+                </div>
+                <div class="cart-success__address-group">
+                    <label for="" class="cart-success__address-label">
+                        Số điện thoại :
+                    </label>
+                    <p id="sdt" class="cart-success__address-content">{{ SaleReceipt.phoneNumber }}</p>
+                </div>
+                <div class="cart-success__address-group">
+                    <label for="" class="cart-success__address-label">Địa chỉ:</label>
+                    <p id="diachi" class="cart-success__address-content">{{ SaleReceipt.address  }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="cart-success__footer"></div>
+    </div>
+</div>

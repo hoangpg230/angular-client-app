@@ -1,0 +1,155 @@
+<div class="offers__body">
+    <div *ngFor="let i of flashSale.slice(0, 1)" class="offers__body-left">
+        <div class="offers__item offers__item--primary">
+            <div class="offers__item-image">
+                <a [routerLink]="['/'+i.slug]" class="link">
+                    <figure class="figure">
+                        <img [src]="i.image" alt="">
+                    </figure>
+                </a>
+                <span class="offers__item-sale-value">-54.3%</span>
+                <div class="offers__item-button-group">
+                    <a [routerLink]="['/'+i.slug]"
+                        class=" offers__item-button offers__item-button--addcart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+
+                    <button class="btn offers__item-button offers__item-button--favorite js-card-favorite"
+                        data-product-id="7256">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="offers__item-content">
+                <a [routerLink]="['/'+i.slug]" class="offers__item-title">
+                    {{ i.name }}
+                </a>
+                <div class="offers__item-rating home-product-item__rating">
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="offers__item-price">
+                    <div class="offers__item-price-sale">{{ i.price | number }}đ</div>
+                    <div class="offers__item-price-cost">{{ priceSale(i.price, 54.3) | number }}đ</div>
+                </div>
+                <div class="offers__item-sales">
+                    <div class="offers__item-sales-head">
+                        <div class="offers__item-sales-available">Còn lại : <span class="value">{{
+                                i.remainQuantity }}</span></div>
+                        <div class="offers__item-sales-sold">Đã bán: <span class="value">{{ i.sold }}</span>
+                        </div>
+                    </div>
+                    <div class="offers__item-sales-ranger">
+                        <div class="offers__item-sales-value" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="offers__item-times">
+                    <div class="offers__item-times-title">Thời gian còn lại:</div>
+                    <div class="countdown offers__item-countdown js-countdown" data-end-in="2020-10-31 17:36:00">
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-days">00</div>
+                            <div class="countdown__item-title">Ngày</div>
+                        </div>
+
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-hours">00</div>
+                            <div class="countdown__item-title">Giờ</div>
+                        </div>
+
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-minutes">00</div>
+                            <div class="countdown__item-title">Phút</div>
+                        </div>
+
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-seconds">00</div>
+                            <div class="countdown__item-title">Giây</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="offers__body-right">
+        <div *ngFor="let i of flashSale.slice(1) " class="offers__item offers__item--secondary">
+            <div class="offers__item-image">
+                <a [routerLink]="['/'+i.slug]" class="link">
+                    <figure class="figure">
+                        <img [src]="i.image" alt="">
+                    </figure>
+                </a>
+                <span class="offers__item-sale-value">-48.6%</span>
+                <div class="offers__item-button-group">
+                    <a [routerLink]="['/'+i.slug]"
+                        class=" offers__item-button offers__item-button--addcart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+
+                    <button class="btn offers__item-button offers__item-button--favorite js-card-favorite"
+                        data-product-id="7256">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="offers__item-content">
+                <a [routerLink]="['/'+i.slug]" class="offers__item-title">
+                    {{i.name}}
+                </a>
+                <div class="offers__item-rating home-product-item__rating">
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="home-product-item__star--gold fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="offers__item-price">
+                    <div class="offers__item-price-sale">{{ i.price | number }}đ</div>
+                    <div class="offers__item-price-cost">{{ priceSale(i.price, 48.6) | number }}đ</div>
+
+                </div>
+
+                <div class="offers__item-sales">
+                    <div class="offers__item-sales-head">
+                        <div class="offers__item-sales-available">Còn lại : <span class="value">{{
+                                i.remainQuantity }}</span></div>
+                        <div class="offers__item-sales-sold">Đã bán: <span class="value">{{ i.sold }}</span>
+                        </div>
+                    </div>
+                    <div class="offers__item-sales-ranger">
+                        <div class="offers__item-sales-value" style="width: 78%;"></div>
+                    </div>
+                </div>
+                <div class="offers__item-times">
+                    <div class="offers__item-times-title">Thời gian còn lại:</div>
+                    <div class="countdown offers__item-countdown js-countdown" data-end-in="2020-08-15 16:38:00">
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-days">00</div>
+                            <div class="countdown__item-title">Ngày</div>
+                        </div>
+
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-hours">00</div>
+                            <div class="countdown__item-title">Giờ</div>
+                        </div>
+
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-minutes">00</div>
+                            <div class="countdown__item-title">Phút</div>
+                        </div>
+
+                        <div class="countdown__item">
+                            <div class="countdown__item-value js-seconds">00</div>
+                            <div class="countdown__item-title">Giây</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

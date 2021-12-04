@@ -1,0 +1,15 @@
+<nav class="shop-search-page__menu">
+    <h3 class="shop-search-page__menu-heading">
+        Danh mục
+    </h3>
+    <ul class="shop-search-page__menu-list" #menu (click)="handleActiveLink($event)">
+        <li class="shop-search-page__menu-item">
+            <a href="/all" class="shop-search-page__menu-link all"
+            [ngClass]="{'active': currentRoute.includes('/all')}"
+            >
+                Tất Cả Sản Phẩm
+            </a>
+        </li>
+
+    </ul>
+</nav>

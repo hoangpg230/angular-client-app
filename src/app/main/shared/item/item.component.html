@@ -1,0 +1,45 @@
+<a [routerLink]="'/' + productInfo.slug" class="home-product-item">
+    <div class="home-product-item__img"
+    [style.background-image]="'url(' + productInfo.image + ')'">
+    </div>
+    <div class="home-product-item__content">
+        <h4 class="home-product-item__name">
+            {{ productInfo.name }}
+        </h4>
+        <div class="home-product-item__price">
+            <span class="home-product-item__price-old">{{ priceSale(productInfo.price, 10) | number}}đ</span>
+            <span class="home-product-item__price-current">{{ productInfo.price | number}}đ</span>
+        </div>
+        <div class="home-product-item__action">
+            <!-- home-product-item__action-like--liked -->
+            <span class="home-product-item__action-like ">
+                <i class="home-product-item__action-like-empty far fa-heart"></i>
+                <i class="home-product-item__action-like-fill  fas fa-heart "></i>
+            </span>
+            <div class="home-product-item__rating">
+                <i class="home-product-item__star--gold fas fa-star"></i>
+                <i class="home-product-item__star--gold fas fa-star"></i>
+                <i class="home-product-item__star--gold fas fa-star"></i>
+                <i class="home-product-item__star--gold fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <div *ngIf="productInfo.sold > 0" class="home-product-item__sold">
+                    <span>  {{productInfo.sold}} </span>Đã bán 
+                </div>
+            </div>
+        </div>
+        <div class="home-product-item__origin">
+            <div class="home-product-item__brand">{{ productInfo.subData.split(" ")[0] }}</div>
+            <div class="home-product-item__origin-name">Hàn Quốc
+            </div>
+        </div>
+    </div>
+    <div class="home-product-item__favourite">
+        <i class="fas fa-check"></i>
+        <div class="home-product-item__favourite-label">Yêu thích
+        </div>
+    </div>
+    <div class="home-product-item__sale-off">
+        <div class="home-product-item__sale-off-percent">10%</div>
+        <div class="home-product-item__sale-off-label">giảm</div>
+    </div>
+</a>

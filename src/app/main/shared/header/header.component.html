@@ -1,0 +1,282 @@
+<header class="header">
+
+    <nav class="nav ">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-item saparate hide-on-mobile-tablet">
+                    <div class="o-5">Tải ứng dụng Mỹ Phẩm Ohui - LG Vina</div>
+                    <div class="nav__qr">
+                        <a href="#" class="nav__qr-img">
+                            <img src="https://img.abaha.vn/photos/qrcode_base64/aHR0cDovL2h5cGVydXJsLmNvL215b2h1aQ"
+                                alt="">
+                        </a>
+                        <div class="nav__qr-app-download">
+                            <a href="#" class="nav__qr-app-download-img">
+                                <img src="https://ohuivina.com/assets/images/icons/02b83d7c975e2830effa5fdf2045095c.png"
+                                    alt="">
+                            </a>
+                            <a href="#" class="nav__qr-app-download-img">
+                                <img src="https://ohuivina.com/assets/images/icons/f014ef6b544459bf2463167d3226851f.png"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item saparate"><i class="fas fa-phone-alt"></i>
+                    <a href="tel:0965866851" class="phone-contact o-5">0965866851</a>
+                </li>
+                <li class="nav-item"><i class="fas fa-envelope"></i>
+                    <a href="mailto:ohuivina.com@gmail.com" class="email-contact o-5">ohuivina.com@gmail.com</a>
+                </li>
+            </ul>
+            <ul class="nav-list hide-on-mobile-tablet">
+                <li class="nav-item ">
+                    <a class="o-5" href="">
+                        <i class="icons-size-l mr-4 far fa-bell"></i> Tin tức
+                    </a>
+                    <div class="nav__notify">
+                        <div class="nav__notify-heading">
+                            Tin tức mới nhất
+                        </div>
+                        <div class="nav__notify-content">
+                            <ul class="nav__notify-list">
+                                <li class="nav__notify-item">
+                                    <a href="" class="nav__notify-link">
+                                        <div class="nav__notify-img">
+                                            <img src="https://img.abaha.vn/photos/resized/200x120/83-1627146178-myphamohui-lgvina.png"
+                                                alt="">
+                                        </div>
+                                        <div class="nav__notify-title">Khi cushion cũng có thể khiến bạn hạnh
+                                            phúc !
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav__notify-item">
+                                    <a href="" class="nav__notify-link">
+                                        <div class="nav__notify-img">
+                                            <img src="https://img.abaha.vn/photos/resized/200x120/83-1627146178-myphamohui-lgvina.png"
+                                                alt="">
+                                        </div>
+                                        <div class="nav__notify-title">Khi cushion cũng có thể khiến bạn hạnh
+                                            phúc !
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav__notify-item">
+                                    <a href="" class="nav__notify-link">
+                                        <div class="nav__notify-img">
+                                            <img src="https://img.abaha.vn/photos/resized/200x120/83-1627146178-myphamohui-lgvina.png"
+                                                alt="">
+                                        </div>
+                                        <div class="nav__notify-title">Khi cushion cũng có thể khiến bạn hạnh
+                                            phúc !
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav__notify-item">
+                                    <a href="" class="nav__notify-link">
+                                        <div class="nav__notify-img">
+                                            <img src="https://img.abaha.vn/photos/resized/200x120/83-1627146178-myphamohui-lgvina.png"
+                                                alt="">
+                                        </div>
+                                        <div class="nav__notify-title">Khi cushion cũng có thể khiến bạn hạnh
+                                            phúc !
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="nav__notify-footer">
+                            <a href="" class="nav__notify-all">Xem tất cả</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item o-5"><a href=""><i class="icons-size-l mr-4 far fa-question-circle"></i>
+                        Liên
+                        hệ</a></li>
+                <!-- not login -->
+                <ng-container *ngIf="!user">
+                    <li class="nav-item saparate o-5"><a href="" onclick="event.preventDefault();showRegister(event)">
+                            Đăng Ký</a></li>
+                    <li class="nav-item o-5 btn-login"><a href="" onclick="event.preventDefault();showLogin(event)"> Đăng
+                            Nhập</a></li>
+                </ng-container>
+
+                <!-- loggeed -->
+                <ng-container *ngIf="user">
+                    <li class="nav-item nav-user">
+                        <img *ngIf="user.Avatar == ''" class="nav-user__avatar "
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzg6iSvJO1i5y1K2L-_s0C7BbMjIg0MG5WhCAUBtSu3rq_YTQGC6ffcyKgrpo-P9MzZKg&usqp=CAU"
+                            alt="">
+                        <img *ngIf="user.Avatar != ''" class="nav-user__avatar "
+                            [src]="user.Avatar"
+                            alt="">
+
+                        <div *ngIf="user.Name == ''" class="nav-user__name ">Người dùng {{user.UserId}}</div>
+                        <div *ngIf="user.Name != ''" class="nav-user__name ">{{user.Name}}</div>
+
+                        <ul class="nav-user__menu">
+                            <li class="nav-user__menu-item">
+                                <a href="">Tài khoản của tôi</a>
+                            </li>
+                            <li class="nav-user__menu-item">
+                                <a href="">Đơn hàng</a>
+                            </li>
+                            <li class="nav-user__menu-item">
+                                <a href="" (click)="logOut()">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ng-container>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="header-with-search">
+
+        <div class="container header-with-search__content">
+
+            <input type="checkbox" hidden id="search-mobile">
+            <label for="search-mobile"><i class="header__icon-search--mobile fas fa-search"></i></label>
+
+            <a routerLink="/home" class="header-with-search__logo">
+                <img src="https://img.abaha.vn/photos/resized/320x/83-1574737287-myphamohui-lgvina.png" alt="">
+            </a>
+            <div class="header-with-search__searchbar ">
+                <div class="header-with-search__searchbar-block">
+                    <input [value]="searchText" type="text" #search class="header-with-search__searchbar-input col-12"
+                        placeholder="Tìm kiếm...">
+                    <ul class="header-with-search__searchbar-list">
+                        <li class="header-with-search__searchbar-item">Lịch sử tìm kiếm</li>
+                        <li class="header-with-search__searchbar-item active"><a href="">Kem dưỡng ẩm</a></li>
+                    </ul>
+                </div>
+                <div class="searchbar-selector">
+                    <span class="searchbar-selector-label">Toàn bộ cửa hàng</span>
+                    <div class="searchbar-selector-icon"><i class="fas fa-chevron-right"></i></div>
+                    <div class="searchbar-selector__drawer">
+                        <div class="searchbar-selector__option">
+                            <a href="" class="searchbar-selector__option-label">Toàn bộ cửa hàng</a>
+                            <div class="searchbar-selector__option-tick">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div (click)="handleSearch(search)" class="btn header-with-search__searchbar-btn">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="header__wrapper">
+                <div class="header-with-search__cart">
+                    <div class="header-with-search__cart-section">
+                        <i class="header-with-search__cart-icon fas fa-shopping-cart">
+                            <div class="header-with-search__cart-count">
+                                <span *ngIf="cart!=null; else elseBlock">{{ cart.totalQuantity }}</span>
+                                <ng-template #elseBlock>0</ng-template>
+                            </div>
+                        </i>
+                        <div class="header__cart-list" [ngClass]="{'header__cart-list--no-cart': !cart}">
+                            <!-- header__cart-list--no-cart -->
+
+
+                            <img class="header__cart-no-cart-img" src="https://ohuivina.com/assets/images/no-cart.png"
+                                alt="">
+                            <div class="header__cart-no-cart-msg">Chưa có sản phẩm</div>
+
+
+
+                            <!-- header__cart-list--has-cart -->
+
+                            <ng-container *ngIf="cart">
+                                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                                <ul class="header__cart-list-item">
+                                    <li *ngFor="let i of cart.products" class="header__cart-item">
+                                        <img class="header__cart-item-img" [src]="i.productInfo.image" alt="">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name">
+                                                    {{i.productInfo.name}}
+                                                </h5>
+                                                <div class="header__cart-item-right">
+                                                    <span class="header__cart-item-price">{{i.productInfo.price |
+                                                        number}}đ</span>
+                                                    <span class="header__cart-item-multiply">x</span>
+                                                    <span class="header__cart-item-quantity">{{i.quantity}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart-item-body">
+                                                <span class="header__cart-item-category">Thương hiệu:
+                                                    <span>Ohui</span></span>
+                                                <span (click)="removeCart(i.productInfo.productId)"
+                                                    class="header__cart-item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <div class="header__cart-footer">
+                                    <div class="header__cart-info">
+                                        <div class="header__cart-info-item">
+                                            <div class="header__cart-info-title">Tổng số tiền:</div>
+                                            <div class="header__cart-info-value">{{cart.totalPrice | number }}đ</div>
+                                        </div>
+                                    </div>
+                                    <div class="view-cart">
+                                        <a class="btn view-cart__link" routerLink="/cart">Xem tất cả</a>
+                                    </div>
+                                </div>
+                            </ng-container>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="header-with-search__user--mobile">
+                    <img class="js-img-user--mobile"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzg6iSvJO1i5y1K2L-_s0C7BbMjIg0MG5WhCAUBtSu3rq_YTQGC6ffcyKgrpo-P9MzZKg&usqp=CAU"
+                        alt="">
+                    <div class="modal modal-user d-none">
+                        <div class="modal__overlay"></div>
+                        <div class="modal-user__info">
+                            <div class="modal-user__head">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzg6iSvJO1i5y1K2L-_s0C7BbMjIg0MG5WhCAUBtSu3rq_YTQGC6ffcyKgrpo-P9MzZKg&usqp=CAU"
+                                    alt="">
+                                Khách lẻ
+                            </div>
+
+                            <div class="modal-user__body">
+                                <div class="modal-user__body-control">
+                                    <a href="" class="btn modal-user__body-control-link">Tin tức</a>
+                                    <a href="" onclick="event.preventDefault();showLogin(event)"
+                                        class="btn btn--primary modal-user__body-control-link">Đăng ký</a>
+                                </div>
+                                <div class="modal-user__body-list">
+                                    <li class="modal-user__body-item"><a href=""> Tin tức</a></li>
+                                    <li class="modal-user__body-item"><a href=""> Giỏ hàng</a></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="header__sort-bar">
+        <li class="header__sort-item"><a href="" class="header__sort-link">Phổ biến</a></li>
+        <li class="header__sort-item"><a href="" class="header__sort-link active">Mới nhất</a></li>
+        <li class="header__sort-item"><a href="" class="header__sort-link">Bán chạy</a></li>
+        <li class="header__sort-item">
+            <a href="" class="header__sort-link">
+                Giá
+                <div class="header__sort-icons">
+                    <i class="header__sort-icon-up fas fa-chevron-up"></i>
+                    <i class="header__sort-icon-down fas fa-chevron-down"></i>
+                </div>
+            </a>
+        </li>
+    </ul>
+</header>

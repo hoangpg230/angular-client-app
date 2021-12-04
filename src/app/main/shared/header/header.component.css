@@ -1,0 +1,7 @@
+.view-cart__link:hover {
+    color: #fff;
+}
+
+.nav-user__menu {
+    z-index: 15;
+}
